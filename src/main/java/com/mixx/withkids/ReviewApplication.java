@@ -1,13 +1,14 @@
-package com.demo.sdikhtiw;
+package com.mixx.withkids;
 
-import com.demo.sdikhtiw.domain.Review;
-import com.demo.sdikhtiw.domain.ReviewRepository;
-import com.demo.sdikhtiw.domain.ReviewType;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import java.util.Date;
+
+import com.mixx.withkids.domain.Review;
+import com.mixx.withkids.domain.ReviewRepository;
+import com.mixx.withkids.domain.ReviewType;
 
 @SpringBootApplication
 public class ReviewApplication {

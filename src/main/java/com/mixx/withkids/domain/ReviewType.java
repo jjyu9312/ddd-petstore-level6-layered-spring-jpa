@@ -1,4 +1,4 @@
-package com.demo.sdikhtiw.domain;
+package com.mixx.withkids.domain;
 
 public enum ReviewType {
     추천,

@@ -1,4 +1,4 @@
-package com.demo.sdikhtiw.domain;
+package com.mixx.withkids.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
