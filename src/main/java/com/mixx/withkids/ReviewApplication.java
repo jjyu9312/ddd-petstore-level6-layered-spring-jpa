@@ -1,14 +1,11 @@
 package com.mixx.withkids;
 
+import com.mixx.withkids.domain.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import java.util.Date;
-
-import com.mixx.withkids.domain.Review;
-import com.mixx.withkids.domain.ReviewRepository;
-import com.mixx.withkids.domain.ReviewType;
 
 @SpringBootApplication
 public class ReviewApplication {
@@ -21,15 +18,17 @@ public class ReviewApplication {
 		applicationContext = SpringApplication.run(ReviewApplication.class, args);
 
 		ReviewRepository repository = applicationContext.getBean(ReviewRepository.class);
-
-		Review rv = new Review(user);
-		rv.setUserId("1");
-		rv.setUsername("genie");
-		rv.setActivityId("1");
-		rv.setActivityName("롯데월드 패키지");
-		rv.setReviewTitle("정말 재밌었어요");
-		rv.setReviewContent("시간가는 줄 모르고 정말 재밌게 놀았습니다.");
-		rv.setReviewType(ReviewType.추천);
+		Member member = new Member();
+		member.setId(0L);
+		member.setUsername("Genie");
+		Reservation reservation = new Reservation();
+		reservation.setActivityName("LotteWorld Package");
+		Review rv = new Review();
+		rv.setMember(member);
+		rv.setReservation(reservation);
+		rv.setReviewTitle("It was really fun");
+		rv.setReviewContent("I didn't notice the passing of time and I had a lot of fun.");
+		rv.setReviewType(ReviewType.GOOD);
 		rv.setCreatedAt(new Date());
 		repository.save(rv);
 		System.out.println("==========================");

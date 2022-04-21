@@ -11,9 +11,16 @@ public class Review {
 
     @Id
     @GeneratedValue
+    @Column(name = "REVIEW_ID")
     private Long reviewId;
 
-    private User user;
+    @ManyToOne
+    @JoinColumn(name = "MEMBER_ID")
+    private Member member;
+
+    @ManyToOne
+    @JoinColumn(name = "RESERVATION_ID")
+    private Reservation reservation;
 
     private String reviewTitle;
 

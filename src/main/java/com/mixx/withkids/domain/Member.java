@@ -8,12 +8,12 @@ import java.util.List;
 
 @Entity
 @Data
-public class Reservation {
+public class Member {
 
     @Id
     @GeneratedValue
-    @Column(name = "RESERVATION_ID")
+    @Column(name = "MEMBER_ID")
     private Long id;
 
-    private String activityName;
+    private String username;
 }
