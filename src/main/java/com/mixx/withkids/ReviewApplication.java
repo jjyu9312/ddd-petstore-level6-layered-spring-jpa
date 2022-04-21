@@ -22,7 +22,7 @@ public class ReviewApplication {
 
 		ReviewRepository repository = applicationContext.getBean(ReviewRepository.class);
 
-		Review rv = new Review();
+		Review rv = new Review(user);
 		rv.setUserId("1");
 		rv.setUsername("genie");
 		rv.setActivityId("1");
