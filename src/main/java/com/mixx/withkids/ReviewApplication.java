@@ -17,12 +17,17 @@ public class ReviewApplication {
 	public static void main(String[] args) {
 		applicationContext = SpringApplication.run(ReviewApplication.class, args);
 
-		ReviewRepository repository = applicationContext.getBean(ReviewRepository.class);
+		MemberRepository memberRepository = applicationContext.getBean(MemberRepository.class);
+		ReservationRepository reservationRepository = applicationContext.getBean(ReservationRepository.class);
+		ReviewRepository reviewRepository = applicationContext.getBean(ReviewRepository.class);
 		Member member = new Member();
-		member.setId(0L);
 		member.setUsername("Genie");
+		memberRepository.save(member);
+
 		Reservation reservation = new Reservation();
 		reservation.setActivityName("LotteWorld Package");
+		reservationRepository.save(reservation);
+
 		Review rv = new Review();
 		rv.setMember(member);
 		rv.setReservation(reservation);
@@ -30,11 +35,15 @@ public class ReviewApplication {
 		rv.setReviewContent("I didn't notice the passing of time and I had a lot of fun.");
 		rv.setReviewType(ReviewType.GOOD);
 		rv.setCreatedAt(new Date());
-		repository.save(rv);
+
+		reviewRepository.save(rv);
+		reviewRepository.findById(1L);
+		
 		System.out.println("==========================");
-		repository.findById(0L);
+		System.out.println(rv.getReviewTitle());
+		System.out.println(rv.getReviewContent());
+		System.out.println(rv.getReviewType());
 		System.out.println("==========================");
-		System.out.println(rv.checkReview());
 	}
 
 }
