@@ -2,6 +2,8 @@ package com.mixx.withkids.domain;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 public class ReviewController {
 
@@ -12,11 +14,10 @@ public class ReviewController {
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/reviews/{id}/select")
-    public Review selectReview(@PathVariable("id") Long id) {
-        Review rv = new Review();
-        reviewRepository.findById(rv.getReviewId(id));
+    public Review selectReview(@PathVariable("id") Long reviewId) {
+        Optional<Review> rv = reviewRepository.findById(reviewId);
 
-        return rv;
+        return rv.get();
     }
 
     @RequestMapping(method = RequestMethod.POST, path = "/reviews")
@@ -26,8 +27,8 @@ public class ReviewController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE, path = "/reviews/{id}/delete")
-    public void deleteReview(@PathVariable("id") Long id) {
-        reviewRepository.findById(id).ifPresent(rv -> {
+    public void deleteReview(@PathVariable("id") Long reviewId) {
+        reviewRepository.findById(reviewId).ifPresent(rv -> {
             reviewRepository.delete(rv);
         });
     }
