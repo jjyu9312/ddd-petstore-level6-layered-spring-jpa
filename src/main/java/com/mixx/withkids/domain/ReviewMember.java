@@ -2,13 +2,14 @@ package com.mixx.withkids.domain;
 
 import lombok.Data;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 @Data
-public class Member {
+public class ReviewMember {
 
     @Id
     @GeneratedValue

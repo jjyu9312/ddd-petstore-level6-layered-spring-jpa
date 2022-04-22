@@ -3,17 +3,16 @@ package com.mixx.withkids.domain;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Data
-public class Reservation {
+public class Activity {
 
     @Id
     @GeneratedValue
-    @Column(name = "RESERVATION_ID")
+    @Column(name = "ACTIVITY_ID")
     private Long id;
 
+    @Column(name = "ACTIVITY_NAME")
     private String activityName;
 }

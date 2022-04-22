@@ -19,19 +19,19 @@ public class Review {
     private Member member;
 
     @ManyToOne
-    @JoinColumn(name = "RESERVATION_ID")
-    private Reservation reservation;
+    @JoinColumn(name = "ACTIVITY_ID")
+    private Activity activity;
 
-    private String reviewTitle;
+        private String reviewTitle;
 
-    private String reviewContent;
+        private String reviewContent;
 
-    private ReviewType reviewType;
+        private ReviewType reviewType;
 
-    private Date createdAt;
+        private Date createdAt;
 
-    // method
-    public Date checkReview(){
+        // method
+        public Date checkReview(){
 
         Date today = new Date();
 
